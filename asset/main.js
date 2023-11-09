@@ -131,7 +131,8 @@ elTicketCardArea.innerHTML = `
 // 新增資料
 const elAddTicketBtn = document.querySelector('.addTicket-btn');
 elAddTicketBtn.addEventListener('click', () => {
-    console.log(`aa`);
+    // console.log(`aa`);
+    addData()
 })
 
 // function addData(){
