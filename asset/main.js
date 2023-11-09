@@ -29,3 +29,118 @@ let data = [{
         "rate": 7
     }
 ];
+
+// Lv1 將data資料透過innerHTML插入到網頁裡
+const elTicketCardArea = document.querySelector('.ticketCard-area');
+
+elTicketCardArea.innerHTML = `
+                <li class="ticketCard">
+                    <div class="ticketCard-img">
+                        <a href="#">
+                            <img src="${data[0].imgUrl}"
+                                alt="">
+                        </a>
+                        <div class="ticketCard-region">${data[0].area}</div>
+                        <div class="ticketCard-rank">${data[0].rate}</div>
+                    </div>
+                    <div class="ticketCard-content">
+                        <div>
+                            <h3>
+                                <a href="#" class="ticketCard-name">${data[0].name}</a>
+                            </h3>
+                            <p class="ticketCard-description">
+                            ${data[0].description}
+                            </p>
+                        </div>
+                        <div class="ticketCard-info">
+                            <p class="ticketCard-num">
+                                <span><i class="fas fa-exclamation-circle"></i></span>
+                                剩下最後 <span id="ticketCard-num">${data[0].group} </span> 組
+                            </p>
+                            <p class="ticketCard-price">
+                                TWD <span id="ticketCard-price">$${data[0].price}</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="ticketCard">
+                    <div class="ticketCard-img">
+                        <a href="#">
+                            <img src="${data[1].imgUrl}"
+                                alt="">
+                        </a>
+                        <div class="ticketCard-region">${data[1].area}</div>
+                        <div class="ticketCard-rank">${data[1].rate}</div>
+                    </div>
+                    <div class="ticketCard-content">
+                        <div>
+                            <h3>
+                                <a href="#" class="ticketCard-name">${data[1].name}</a>
+                            </h3>
+                            <p class="ticketCard-description">
+                            ${data[1].description}
+                            </p>
+                        </div>
+                        <div class="ticketCard-info">
+                            <div class="ticketCard-num">
+                                <p>
+                                    <span><i class="fas fa-exclamation-circle"></i></span>
+                                    剩下最後 <span id="ticketCard-num"> ${data[1].group} </span> 組
+                                </p>
+                            </div>
+                            <p class="ticketCard-price">
+                                TWD <span id="ticketCard-price">$${data[1].price}</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="ticketCard">
+                    <div class="ticketCard-img">
+                        <a href="#">
+                            <img src="${data[2].imgUrl}"
+                                alt="">
+                        </a>
+                        <div class="ticketCard-region">${data[2].area}</div>
+                        <div class="ticketCard-rank">${data[2].rate}</div>
+                    </div>
+                    <div class="ticketCard-content">
+                        <div>
+                            <h3>
+                                <a href="#" class="ticketCard-name">${data[2].name}</a>
+                            </h3>
+                            <p class="ticketCard-description">
+                            ${data[2].description}
+                            </p>
+                        </div>
+                        <div class="ticketCard-info">
+                            <div class="ticketCard-num">
+                                <p>
+                                    <span><i class="fas fa-exclamation-circle"></i></span>
+                                    剩下最後 <span id="ticketCard-num"> ${data[2].group} </span> 組
+                                </p>
+                            </div>
+                            <p class="ticketCard-price">
+                                TWD <span id="ticketCard-price">$${data[2].price}</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+`;
+
+// Lv3  
+// 新增資料
+const elAddTicketBtn = document.querySelector('.addTicket-btn');
+elAddTicketBtn.addEventListener('click', () => {
+    console.log(`aa`);
+})
+
+// function addData(){
+
+// }
+
+const elRegionSearch = document.querySelector('.regionSearch');
+
+elRegionSearch.addEventListener("change", (event) => {
+    const result = document.querySelector('.result');
+    result.textContent = `你選的地區是${event.target.value}`;
+});
