@@ -70,6 +70,7 @@ let data = [{
 const elTicketCardArea = document.querySelector('.ticketCard-area');
 // 一開始先渲染出陣列資料
 render();
+
 function render(location) {
     let str = '';
     // filter
@@ -80,7 +81,7 @@ function render(location) {
         // 全部地區用的 value是空值 if('')=>false
         if (!location) {
             return item;
-        } 
+        }
     });
     // 判斷完的資料塞回str裡面
     filterData.forEach(function (item) {
@@ -149,7 +150,9 @@ function addCard() {
         price: parseInt(elPrice.value),
         rate: parseInt(elRate.value)
     })
-    console.log(data);
+    // console.log(data);
+    // 重新渲染整個列表
+    render();
     // 新增完清空
     const elForm = document.querySelector('.addTicket-form');
     elForm.reset();
