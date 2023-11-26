@@ -73,16 +73,21 @@ render();
 
 function render(location) {
     let str = '';
+    // 新增篩選資料後的陣列，第五週錯誤修正
+    let filterdData = [];
     // filter
     const filterData = data.filter(function (item) {
         if (location === item.area) {
-            return item;
+            filterdData.push(item);
+            return true;
         }
         // 全部地區用的 value是空值 if('')=>false
         if (!location) {
-            return item;
-        }
+            filterdData.push(item);
+            return true;
+        } 
     });
+
     // 判斷完的資料塞回str裡面
     filterData.forEach(function (item) {
         str += `
@@ -117,6 +122,9 @@ function render(location) {
 `
     });
     elTicketCardArea.innerHTML = str;
+    const elResultCount = document.querySelector('#searchResult-text');
+    elResultCount.textContent =`本次搜尋共 ${filterdData.length} 筆資料`;
+
 }
 
 
